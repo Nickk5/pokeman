@@ -83,6 +83,48 @@ public class TypeChart {
         chart.put("Psychic Psychic", 0.5);
         chart.put("Psychic Dark", 0.0);
         chart.put("Psychic Steel", 0.5);
+        chart.put("Bug Fire", 0.5);
+        chart.put("Bug Grass", 2.0);
+        chart.put("Bug Fighting", 0.5);
+        chart.put("Bug Poison", 0.5);
+        chart.put("Bug Flying", 0.5);
+        chart.put("Bug Psychic", 2.0);
+        chart.put("Bug Ghost", 0.5);
+        chart.put("Bug Dark", 2.0);
+        chart.put("Bug Steel", 0.5);
+        chart.put("Bug Fairy", 0.5);
+        chart.put("Rock Fire", 2.0);
+        chart.put("Rock Ice", 2.0);
+        chart.put("Rock Fighting", 0.5);
+        chart.put("Rock Ground", 0.5);
+        chart.put("Rock Flying", 2.0);
+        chart.put("Rock Bug", 2.0);
+        chart.put("Rock Steel", 0.5);
+        chart.put("Ghost Normal", 0.0);
+        chart.put("Ghost Psychic", 2.0);
+        chart.put("Ghost Ghost", 2.0);
+        chart.put("Ghost Dark", 0.5);
+        chart.put("Dragon Dragon", 2.0);
+        chart.put("Dragon Steel", 0.5);
+        chart.put("Dragon Fairy", 0.0);
+        chart.put("Dark Fighting", 0.5);
+        chart.put("Dark Psychic", 2.0);
+        chart.put("Dark Ghost", 2.0);
+        chart.put("Dark Dark", 0.5);
+        chart.put("Dark Fairy", 0.5);
+        chart.put("Steel Fire", 0.5);
+        chart.put("Steel Water", 0.5);
+        chart.put("Steel Electric", 0.5);
+        chart.put("Steel Ice", 2.0);
+        chart.put("Steel Rock", 2.0);
+        chart.put("Steel Steel", 0.5);
+        chart.put("Steel Fairy", 2.0);
+        chart.put("Fairy Fire", 0.5);
+        chart.put("Fairy Fighting", 2.0);
+        chart.put("Fairy Poison", 0.5);
+        chart.put("Fairy Dragon", 2.0);
+        chart.put("Fairy Dark", 2.0);
+        chart.put("Fairy Steel", 0.5);
     }
 
     public double getMultiplier(String attacker, String defender)
