@@ -1,7 +1,7 @@
 import java.util.HashMap;
 public class TypeChart {
     // [Attacker, Defender]
-    private HashMap<String, Double> chart = new HashMap<String, Double>();
+    private final HashMap<String, Double> chart = new HashMap<>();
     //hard coding each type combination kill me now
     public TypeChart()
     {
@@ -127,8 +127,12 @@ public class TypeChart {
         chart.put("Fairy Steel", 0.5);
     }
 
-    public double getMultiplier(String attacker, String defender)
+    public double getMultiplier(String attacker, String[] defender)
     {
-        return chart.getOrDefault(attacker + " " + defender, 1.0);
+        double mult = 1;
+        for (String s : defender) {
+            mult *= chart.getOrDefault(attacker + " " + s, 1.0);
+        }
+        return mult;
     }
 }
