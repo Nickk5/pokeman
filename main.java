@@ -8,7 +8,7 @@ public class main {
         TypeChart test = new TypeChart();
         Scanner in = new Scanner(System.in);
 
-        // Premade moves (as previously defined)
+        // Premade moves
         Moves fireMove = new SpecialMove("Fire", 90, 100, 0);
         Moves waterMove = new SpecialMove("Water", 110, 80, 0);
         Moves grassMove = new SpecialMove("Grass", 90, 100, 0);
@@ -63,7 +63,7 @@ public class main {
             int spatk = in.nextInt();
             System.out.println("Enter pokemon spdef: ");
             int spdef = in.nextInt();
-            in.nextLine();
+            in.nextLine(); // Consume the newline character
             System.out.println("Enter the pokemon's first type: ");
             String type1 = in.nextLine();
             System.out.println("Enter the pokemon's second type(Enter none if there is no second type): ");
@@ -92,22 +92,22 @@ public class main {
                 }
             }
 
-            player[i] = new Pokemon(name, type, atk, def, spatk, spdef, health, speed, (Moves[]) moves.toArray());
+            player[i] = new Pokemon(name, type, atk, def, spatk, spdef, health, speed, moves.toArray(new Moves[0]));
             numPokemon++;
-            System.out.println("Do you want to add more pokemon to your team?(y/n)");
+            System.out.println("Do you want to add more pokemon to your team? (y/n)");
             if (in.next().equalsIgnoreCase("n")) {
-                in.nextLine();
+                in.nextLine(); // Consume the newline character
                 break;
             }
-            in.nextLine();
+            in.nextLine(); // Consume the newline character
         }
 
         // Generate NPC Pokémon based on round
         int round = 3;
         NPCPokemon npcPokemon = NPCPokemon.generateRandomNPC(round);
-        
+
         // Start the battle
-        Battle battle = new Battle(player[0], npcPokemon);
-        battle.startBattle();
+        Battle battle = new Battle();
+        battle.startBattle(player[0], npcPokemon);
     }
 }
