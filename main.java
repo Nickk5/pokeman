@@ -69,10 +69,11 @@ public class main {
             String type2 = in.nextLine();
             String[] type = {type1, type2.equalsIgnoreCase("none") ? null : type2};
             
-            ArrayList<Moves> moves = new ArrayList<>();
+           ArrayList<Move> moves = new ArrayList<>();
             System.out.println("You can assign up to 4 moves to this Pokemon from the following premade moves:");
             for (int j = 0; j < premadeMoves.size(); j++) {
-                System.out.println((j + 1) + ". " + premadeMoves.get(j).getName());
+                Move move = premadeMoves.get(j);
+                System.out.println((j + 1) + ". " + move.getType() + " (Power: " + move.getPower() + ", Accuracy: " + move.getAccuracy() + ", Priority: " + move.getPriority() + ")");
             }
 
             while (moves.size() < 4) {
@@ -83,7 +84,8 @@ public class main {
                 if (choice == 0) break;
                 if (choice > 0 && choice <= premadeMoves.size()) {
                     moves.add(premadeMoves.get(choice - 1));
-                    System.out.println(premadeMoves.get(choice - 1).getName() + " added to " + name + "!");
+                    Move chosenMove = premadeMoves.get(choice - 1);
+                    System.out.println(chosenMove.getType() + " move added to " + name + "!");
                 } else {
                     System.out.println("Invalid choice. Try again.");
                 }
