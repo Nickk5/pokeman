@@ -1,5 +1,6 @@
 /**
  * a class to represent a physical move
+ * @author Nicholas Kicinski and Yejun Shin
  */
 public class PhysicalMove implements Moves {
     private String type;
