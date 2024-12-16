@@ -1,5 +1,6 @@
 /**
  * a class to represent a special move
+ * @author Nicholas Kicinski and Yejun Shin
  */
 public class SpecialMove implements Moves {
     private String type;
