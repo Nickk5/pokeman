@@ -1,6 +1,7 @@
 /**
  * pokemon class to represent a pokemon
- */
+ * @author Nicholas Kicinski and Yejun Shin
+*/
 public class Pokemon {
   private String name;
   private String[] type;
