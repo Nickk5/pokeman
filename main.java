@@ -8,23 +8,44 @@ public class main {
         TypeChart test = new TypeChart();
         Scanner in = new Scanner(System.in);
 
-        Moves fireMove = new SpecialMove("Flamethrower", "Fire", 90, 100);
-        Moves waterMove = new SpecialMove("Hydro Pump", "Water", 110, 80);
-        Moves grassMove = new SpecialMove("Leaf Blade", "Grass", 90, 100);
-        Moves electricMove = new SpecialMove("Thunderbolt", "Electric", 90, 100);
-        Moves iceMove = new SpecialMove("Ice Beam", "Ice", 90, 100);
-        Moves fightingMove = new PhysicalMove("Close Combat", "Fighting", 120, 100);
-        Moves poisonMove = new SpecialMove("Sludge Bomb", "Poison", 90, 100);
-        Moves groundMove = new PhysicalMove("Earthquake", "Ground", 100, 100);
-        Moves flyingMove = new SpecialMove("Air Slash", "Flying", 75, 95);
-        Moves psychicMove = new SpecialMove("Psychic", "Psychic", 90, 100);
-        Moves bugMove = new PhysicalMove("X-Scissor", "Bug", 80, 100);
-        Moves rockMove = new PhysicalMove("Rock Slide", "Rock", 75, 90);
-        Moves ghostMove = new SpecialMove("Shadow Ball", "Ghost", 80, 100);
-        Moves dragonMove = new SpecialMove("Dragon Pulse", "Dragon", 85, 100);
-        Moves darkMove = new SpecialMove("Dark Pulse", "Dark", 80, 100);
-        Moves steelMove = new PhysicalMove("Iron Head", "Steel", 80, 100);
-        Moves fairyMove = new SpecialMove("Moonblast", "Fairy", 95, 100);
+        Move fireMove = new SpecialMove("Fire", 90, 100, 0);
+        Move waterMove = new SpecialMove("Water", 110, 80, 0);
+        Move grassMove = new SpecialMove("Grass", 90, 100, 0);
+        Move electricMove = new SpecialMove("Electric", 90, 100, 0);
+        Move iceMove = new SpecialMove("Ice", 90, 100, 0);
+        Move fightingMove = new PhysicalMove("Fighting", 120, 100, 0);
+        Move poisonMove = new SpecialMove("Poison", 90, 100, 0);
+        Move groundMove = new PhysicalMove("Ground", 100, 100, 0);
+        Move flyingMove = new SpecialMove("Flying", 75, 95, 0);
+        Move psychicMove = new SpecialMove("Psychic", 90, 100, 0);
+        Move bugMove = new PhysicalMove("Bug", 80, 100, 0);
+        Move rockMove = new PhysicalMove("Rock", 75, 90, 0);
+        Move ghostMove = new SpecialMove("Ghost", 80, 100, 0);
+        Move dragonMove = new SpecialMove("Dragon", 85, 100, 0);
+        Move darkMove = new SpecialMove("Dark", 80, 100, 0);
+        Move steelMove = new PhysicalMove("Steel", 80, 100, 0);
+        Move fairyMove = new SpecialMove("Fairy", 95, 100, 0);
+        Move statMove = new StatMove("Attack", 2, 100);
+        
+        ArrayList<Move> premadeMoves = new ArrayList<>();
+        premadeMoves.add(fireMove);
+        premadeMoves.add(waterMove);
+        premadeMoves.add(grassMove);
+        premadeMoves.add(electricMove);
+        premadeMoves.add(iceMove);
+        premadeMoves.add(fightingMove);
+        premadeMoves.add(poisonMove);
+        premadeMoves.add(groundMove);
+        premadeMoves.add(flyingMove);
+        premadeMoves.add(psychicMove);
+        premadeMoves.add(bugMove);
+        premadeMoves.add(rockMove);
+        premadeMoves.add(ghostMove);
+        premadeMoves.add(dragonMove);
+        premadeMoves.add(darkMove);
+        premadeMoves.add(steelMove);
+        premadeMoves.add(fairyMove);
+        premadeMoves.add(statMove);
         
         for (int i = 0; i < player.length; i++) {
             System.out.println("Enter Pokemon Name: ");
@@ -47,25 +68,26 @@ public class main {
             System.out.println("Enter the pokemon's second type(Enter none if there is no second type): ");
             String type2 = in.nextLine();
             String[] type = {type1, type2.equalsIgnoreCase("none") ? null : type2};
-
+            
             ArrayList<Move> moves = new ArrayList<>();
-            if (type1.equalsIgnoreCase("Fire") || type2.equalsIgnoreCase("Fire")) moves.add(fireMove);
-            if (type1.equalsIgnoreCase("Water") || type2.equalsIgnoreCase("Water")) moves.add(waterMove);
-            if (type1.equalsIgnoreCase("Grass") || type2.equalsIgnoreCase("Grass")) moves.add(grassMove);
-            if (type1.equalsIgnoreCase("Electric") || type2.equalsIgnoreCase("Electric")) moves.add(electricMove);
-            if (type1.equalsIgnoreCase("Ice") || type2.equalsIgnoreCase("Ice")) moves.add(iceMove);
-            if (type1.equalsIgnoreCase("Fighting") || type2.equalsIgnoreCase("Fighting")) moves.add(fightingMove);
-            if (type1.equalsIgnoreCase("Poison") || type2.equalsIgnoreCase("Poison")) moves.add(poisonMove);
-            if (type1.equalsIgnoreCase("Ground") || type2.equalsIgnoreCase("Ground")) moves.add(groundMove);
-            if (type1.equalsIgnoreCase("Flying") || type2.equalsIgnoreCase("Flying")) moves.add(flyingMove);
-            if (type1.equalsIgnoreCase("Psychic") || type2.equalsIgnoreCase("Psychic")) moves.add(psychicMove);
-            if (type1.equalsIgnoreCase("Bug") || type2.equalsIgnoreCase("Bug")) moves.add(bugMove);
-            if (type1.equalsIgnoreCase("Rock") || type2.equalsIgnoreCase("Rock")) moves.add(rockMove);
-            if (type1.equalsIgnoreCase("Ghost") || type2.equalsIgnoreCase("Ghost")) moves.add(ghostMove);
-            if (type1.equalsIgnoreCase("Dragon") || type2.equalsIgnoreCase("Dragon")) moves.add(dragonMove);
-            if (type1.equalsIgnoreCase("Dark") || type2.equalsIgnoreCase("Dark")) moves.add(darkMove);
-            if (type1.equalsIgnoreCase("Steel") || type2.equalsIgnoreCase("Steel")) moves.add(steelMove);
-            if (type1.equalsIgnoreCase("Fairy") || type2.equalsIgnoreCase("Fairy")) moves.add(fairyMove);
+            System.out.println("You can assign up to 4 moves to this Pokemon from the following premade moves:");
+            for (int j = 0; j < premadeMoves.size(); j++) {
+                System.out.println((j + 1) + ". " + premadeMoves.get(j).getName());
+            }
+
+            while (moves.size() < 4) {
+                System.out.println("Enter the number corresponding to the move you want to add, or enter 0 to stop: ");
+                int choice = in.nextInt();
+                in.nextLine();
+
+                if (choice == 0) break;
+                if (choice > 0 && choice <= premadeMoves.size()) {
+                    moves.add(premadeMoves.get(choice - 1));
+                    System.out.println(premadeMoves.get(choice - 1).getName() + " added to " + name + "!");
+                } else {
+                    System.out.println("Invalid choice. Try again.");
+                }
+            }
 
             player[i] = new Pokemon(name, type, atk, def, spatk, spdef, health, speed, moves);
             numPokemon++;
