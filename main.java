@@ -8,6 +8,7 @@ public class main {
         TypeChart test = new TypeChart();
         Scanner in = new Scanner(System.in);
 
+        // Premade moves (as previously defined)
         Moves fireMove = new SpecialMove("Fire", 90, 100, 0);
         Moves waterMove = new SpecialMove("Water", 110, 80, 0);
         Moves grassMove = new SpecialMove("Grass", 90, 100, 0);
@@ -100,5 +101,13 @@ public class main {
             }
             in.nextLine();
         }
+
+        // Generate NPC Pokémon based on round
+        int round = 3;
+        NPCPokemon npcPokemon = NPCPokemon.generateRandomNPC(round);
+        
+        // Start the battle
+        Battle battle = new Battle(player[0], npcPokemon);
+        battle.startBattle();
     }
 }
