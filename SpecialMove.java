@@ -3,6 +3,7 @@ public class SpecialMove implements Moves {
     private int basePower;
     private double accuracy;
     private int priority;
+    private int numHits;
 
     public SpecialMove(String type, int basePower, double accuracy, int priority) {
         this.type = type;
@@ -31,6 +32,10 @@ public class SpecialMove implements Moves {
         return priority;
     }
 
+    public int getNumHits()
+    {
+        return numHits;
+    }
     @Override
     public double getDamage(Pokemon attacker, Pokemon defender) {
         double typeMultiplier = new TypeChart().getMultiplier(type, defender.getType());
