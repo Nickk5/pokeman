@@ -3,6 +3,7 @@ import java.util.Random;
 /**
  * Class representing a non-player character (NPC) Pokemon.
  * The NPC Pokemon can randomly choose moves based on the current battle situation.
+ * @author Nicholas Kicinski and Yejun Shin
  */
 public class NPCPokemon extends Pokemon {
 
