@@ -18,6 +18,11 @@ public class PhysicalMove implements Moves {
     }
 
     @Override
+    public int getBasePower() {
+        return basePower;
+    }
+
+    @Override
     public String getType() {
         return type;
     }

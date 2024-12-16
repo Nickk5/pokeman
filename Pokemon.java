@@ -132,5 +132,10 @@ public class Pokemon {
   public void setAtkchange(double atkchange) {
     this.atkchange = atkchange;
   }
+
+  public void inflictDamage(double damage)
+  {
+    hp -= (int) damage;
+  }
 }
 

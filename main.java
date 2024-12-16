@@ -40,11 +40,6 @@ public class main
       }
       in.nextLine();
     }
-    // for(int i = 0; i < numPokemon; i++)
-    // {
-    // System.out.println(test.getMultiplier("Fighting", player[i].getType()));
-    //System.out.println(player[i].getName());
-    // }
     int numRounds = 0;
     while(true)
     {
