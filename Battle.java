@@ -1,9 +1,9 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Battle {
     private Pokemon playerPokemon;
     private NPCPokemon npcPokemon;
-    
+
     public Battle(Pokemon playerPokemon, NPCPokemon npcPokemon) {
         this.playerPokemon = playerPokemon;
         this.npcPokemon = npcPokemon;
@@ -12,20 +12,23 @@ public class Battle {
     public void startBattle() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("A battle has started between " + playerPokemon.getName() + " and " + npcPokemon.getName() + "!");
-        
+
+        // Determine the turn order using speed algorithm
+        Pokemon[] battleParticipants = {playerPokemon, npcPokemon};
+        speedAlgorithm speedAlg = new speedAlgorithm();
+        Queue<Pokemon> turnOrder = speedAlg.speedCheck(battleParticipants);
+
         while (playerPokemon.getHp() > 0 && npcPokemon.getHp() > 0) {
-            // Determine who goes first
-            boolean playerGoesFirst = playerPokemon.getSpd() >= npcPokemon.getSpd();
-            
-            // Battle loop
-            if (playerGoesFirst) {
+            Pokemon currentPokemon = turnOrder.poll(); // Get the next Pokémon to act
+
+            // Perform turn based on who is first
+            if (currentPokemon.equals(playerPokemon)) {
                 playerTurn(scanner);
                 if (npcPokemon.getHp() <= 0) {
                     System.out.println(npcPokemon.getName() + " has been defeated!");
                     System.out.println("You win!");
                     return;
                 }
-                npcTurn();
             } else {
                 npcTurn();
                 if (playerPokemon.getHp() <= 0) {
@@ -33,14 +36,15 @@ public class Battle {
                     System.out.println("You lose!");
                     return;
                 }
-                playerTurn(scanner);
             }
+            // Recalculate the turn order after each round based on the remaining Pokémon
+            turnOrder = speedAlg.speedCheck(new Pokemon[] {playerPokemon, npcPokemon});
         }
     }
 
     private void playerTurn(Scanner scanner) {
         System.out.println("\nIt's your turn! Choose a move:");
-        
+
         // List available moves for player
         for (int i = 0; i < playerPokemon.getMoves().length; i++) {
             Moves move = playerPokemon.getMoves()[i];
