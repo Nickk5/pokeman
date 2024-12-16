@@ -4,8 +4,7 @@ public class NPCPokemon extends Pokemon {
     private Moves[] moves;
 
     public NPCPokemon(String name, String[] type, int atk, int def, int spatk, int spdef, int hp, int spd, Moves[] moves) {
-        super(name, type, atk, def, spatk, spdef, hp, spd);
-        this.moves = moves;
+        super(name, type, atk, def, spatk, spdef, hp, spd, moves);
     }
 
     public Moves chooseMove(Pokemon target) {

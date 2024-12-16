@@ -1,8 +1,15 @@
 import java.util.HashMap;
+
+/**
+ * Creates a type chart and uses it to return damage multipliers
+ */
 public class TypeChart {
     // [Attacker, Defender]
     private final HashMap<String, Double> chart = new HashMap<>();
-    //hard coding each type combination kill me now
+
+    /**
+     * initializes the type chart
+     */
     public TypeChart()
     {
         chart.put("Normal Rock", 0.5);
@@ -127,6 +134,12 @@ public class TypeChart {
         chart.put("Fairy Steel", 0.5);
     }
 
+    /**
+     *
+     * @param attacker the move's typing
+     * @param defender the defender's typing
+     * @return damage multiplier based off of typing
+     */
     public double getMultiplier(String attacker, String[] defender)
     {
         double mult = 1;
