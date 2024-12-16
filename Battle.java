@@ -1,14 +1,29 @@
 import java.util.Scanner;
 
+/**
+ * class to simulate a battle
+ */
 public class Battle {
-
+    /**
+     *
+     * @param pokemon the pokemon that the player control
+     * @param npcPokemon the okemon that the npc controls
+     */
     public Battle(Pokemon pokemon, NPCPokemon npcPokemon) {
     }
 
+    /**
+     * instantiates battle
+     */
     public Battle() {
 
     }
 
+    /**
+     * has the player and the npc's pokemon fight until the battle is over
+     * @param player player's pokemon
+     * @param npc npc's pokemon
+     */
     public void startBattle(Pokemon player, NPCPokemon npc) {
         Scanner in = new Scanner(System.in);
         System.out.println("A battle has started between " + player.getName() + " and " + npc.getName());
@@ -58,6 +73,11 @@ public class Battle {
         }
     }
 
+    /**
+     * to simulate the ai using a move
+     * @param player the player's pokemon
+     * @param npc the npc's pokemon
+     */
     private void npcTurn(Pokemon player, NPCPokemon npc) {
         System.out.println(npc.getName() + "'s turn!");
         Moves npcMove = npc.chooseMove(player); // NPC chooses a move
