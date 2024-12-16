@@ -1,6 +1,7 @@
 public class Pokemon {
   private String name;
   private String[] type;
+  private Moves[] moves;
   private int atk;
   private int def;
   private int spatk;
@@ -13,7 +14,7 @@ public class Pokemon {
   private double spdefchange;
   private double spatkchange;
 
-  public Pokemon(String name, String[] type, int atk, int def, int spatk, int spdef, int hp, int spd) {
+  public Pokemon(String name, String[] type, int atk, int def, int spatk, int spdef, int hp, int spd, Moves[] move) {
     this.name = name;
     this.type = type;
     this.atk = atk;
@@ -27,6 +28,7 @@ public class Pokemon {
     spdchange = 1;
     spdefchange = 1;
     spatkchange = 1;
+    this.moves = move;
   }
 
   public String[] getType() {

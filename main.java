@@ -8,26 +8,26 @@ public class main {
         TypeChart test = new TypeChart();
         Scanner in = new Scanner(System.in);
 
-        Move fireMove = new SpecialMove("Fire", 90, 100, 0);
-        Move waterMove = new SpecialMove("Water", 110, 80, 0);
-        Move grassMove = new SpecialMove("Grass", 90, 100, 0);
-        Move electricMove = new SpecialMove("Electric", 90, 100, 0);
-        Move iceMove = new SpecialMove("Ice", 90, 100, 0);
-        Move fightingMove = new PhysicalMove("Fighting", 120, 100, 0);
-        Move poisonMove = new SpecialMove("Poison", 90, 100, 0);
-        Move groundMove = new PhysicalMove("Ground", 100, 100, 0);
-        Move flyingMove = new SpecialMove("Flying", 75, 95, 0);
-        Move psychicMove = new SpecialMove("Psychic", 90, 100, 0);
-        Move bugMove = new PhysicalMove("Bug", 80, 100, 0);
-        Move rockMove = new PhysicalMove("Rock", 75, 90, 0);
-        Move ghostMove = new SpecialMove("Ghost", 80, 100, 0);
-        Move dragonMove = new SpecialMove("Dragon", 85, 100, 0);
-        Move darkMove = new SpecialMove("Dark", 80, 100, 0);
-        Move steelMove = new PhysicalMove("Steel", 80, 100, 0);
-        Move fairyMove = new SpecialMove("Fairy", 95, 100, 0);
-        Move statMove = new StatMove("Attack", 2, 100);
+        Moves fireMove = new SpecialMove("Fire", 90, 100, 0);
+        Moves waterMove = new SpecialMove("Water", 110, 80, 0);
+        Moves grassMove = new SpecialMove("Grass", 90, 100, 0);
+        Moves electricMove = new SpecialMove("Electric", 90, 100, 0);
+        Moves iceMove = new SpecialMove("Ice", 90, 100, 0);
+        Moves fightingMove = new PhysicalMove("Fighting", 120, 100, 0);
+        Moves poisonMove = new SpecialMove("Poison", 90, 100, 0);
+        Moves groundMove = new PhysicalMove("Ground", 100, 100, 0);
+        Moves flyingMove = new SpecialMove("Flying", 75, 95, 0);
+        Moves psychicMove = new SpecialMove("Psychic", 90, 100, 0);
+        Moves bugMove = new PhysicalMove("Bug", 80, 100, 0);
+        Moves rockMove = new PhysicalMove("Rock", 75, 90, 0);
+        Moves ghostMove = new SpecialMove("Ghost", 80, 100, 0);
+        Moves dragonMove = new SpecialMove("Dragon", 85, 100, 0);
+        Moves darkMove = new SpecialMove("Dark", 80, 100, 0);
+        Moves steelMove = new PhysicalMove("Steel", 80, 100, 0);
+        Moves fairyMove = new SpecialMove("Fairy", 95, 100, 0);
+        Moves statMove = new StatMove("Attack", 2, 100);
         
-        ArrayList<Move> premadeMoves = new ArrayList<>();
+        ArrayList<Moves> premadeMoves = new ArrayList<>();
         premadeMoves.add(fireMove);
         premadeMoves.add(waterMove);
         premadeMoves.add(grassMove);
@@ -69,7 +69,7 @@ public class main {
             String type2 = in.nextLine();
             String[] type = {type1, type2.equalsIgnoreCase("none") ? null : type2};
             
-            ArrayList<Move> moves = new ArrayList<>();
+            ArrayList<Moves> moves = new ArrayList<>();
             System.out.println("You can assign up to 4 moves to this Pokemon from the following premade moves:");
             for (int j = 0; j < premadeMoves.size(); j++) {
                 System.out.println((j + 1) + ". " + premadeMoves.get(j).getName());
@@ -89,7 +89,7 @@ public class main {
                 }
             }
 
-            player[i] = new Pokemon(name, type, atk, def, spatk, spdef, health, speed, moves);
+            player[i] = new Pokemon(name, type, atk, def, spatk, spdef, health, speed, (Moves[]) moves.toArray());
             numPokemon++;
             System.out.println("Do you want to add more pokemon to your team?(y/n)");
             if (in.next().equalsIgnoreCase("n")) {
