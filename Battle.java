@@ -2,6 +2,13 @@ import java.util.Scanner;
 
 public class Battle {
 
+    public Battle(Pokemon pokemon, NPCPokemon npcPokemon) {
+    }
+
+    public Battle() {
+
+    }
+
     public void startBattle(Pokemon player, NPCPokemon npc) {
         Scanner in = new Scanner(System.in);
         System.out.println("A battle has started between " + player.getName() + " and " + npc.getName());
@@ -13,8 +20,8 @@ public class Battle {
 
             // Show the player's available moves
             for (int i = 0; i < player.getMoves().length; i++) {
-                System.out.println((i + 1) + ". " + player.getMoves()[i].getType() + " (Power: " 
-                    + player.getMoves()[i].getBasePower() + ")");
+                System.out.println((i + 1) + ". " + player.getMoves()[i].getType() + " (Power: "
+                        + player.getMoves()[i].getBasePower() + ")");
             }
 
             // Prompt player to choose a move
