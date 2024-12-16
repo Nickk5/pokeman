@@ -1,6 +1,7 @@
 /**
  * a move to represent a move that deals no damage but changes the stat of a pokemon
- */
+ * @author Nicholas Kicinski and Yejun Shin
+*/
 public class StatMove implements Moves {
     private String affectedStat;
     private double changeAmount;
