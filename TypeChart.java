@@ -1,3 +1,6 @@
+/**
+* @author Nicholas Kicinski and Yejun Shin
+*/
 import java.util.HashMap;
 
 /**
