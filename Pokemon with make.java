@@ -29,3 +29,22 @@ public static Pokemon createPokemon(Scanner in) {
 
     return new Pokemon(name, type, atk, def, spatk, spdef, health, speed);
 }
+
+private static int validateStatInput(Scanner in, String statName) {
+    int stat;
+    while (true) {
+        try {
+            System.out.printf("Enter %s (0-255): ", statName);
+            stat = in.nextInt();
+            if (stat >= 0 && stat <= 255) {
+                break;
+            } else {
+                System.out.println("Invalid input. Please enter a value between 0 and 255.");
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please enter a number.");
+            in.next(); // Clear invalid input
+        }
+    }
+    return stat;
+}
