@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class main {
     public static void main(String[] args) {
+        //variables used to create pokemon or to use the type chart
         Pokemon[] player = new Pokemon[6];
         int numPokemon = 0;
         TypeChart test = new TypeChart();
@@ -28,6 +29,7 @@ public class main {
         Moves fairyMove = new SpecialMove("Fairy", 95, 100, 0);
         Moves statMove = new StatMove("Attack", 2, 100);
 
+        //Arary list of the premade moves
         ArrayList<Moves> premadeMoves = new ArrayList<>();
         premadeMoves.add(fireMove);
         premadeMoves.add(waterMove);
@@ -48,6 +50,7 @@ public class main {
         premadeMoves.add(fairyMove);
         premadeMoves.add(statMove);
 
+        //creates the pokemon
         for (int i = 0; i < player.length; i++) {
             System.out.println("Enter Pokemon Name: ");
             String name = in.nextLine();
@@ -69,7 +72,7 @@ public class main {
             System.out.println("Enter the pokemon's second type(Enter none if there is no second type): ");
             String type2 = in.nextLine();
             String[] type = {type1, type2.equalsIgnoreCase("none") ? null : type2};
-
+            //add moves that the pokemon will know
             ArrayList<Moves> moves = new ArrayList<>();
             System.out.println("You can assign up to 4 moves to this Pokemon from the following premade moves:");
             for (int j = 0; j < premadeMoves.size(); j++) {
@@ -91,7 +94,7 @@ public class main {
                     System.out.println("Invalid choice. Try again.");
                 }
             }
-
+            // instantiates the pokemon
             player[i] = new Pokemon(name, type, atk, def, spatk, spdef, health, speed, moves.toArray(new Moves[0]));
             numPokemon++;
             System.out.println("Do you want to add more pokemon to your team? (y/n)");

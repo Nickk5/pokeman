@@ -1,12 +1,32 @@
 import java.util.Random;
 
+/**
+ * creates a pokemon that is owned by the ai
+ */
 public class NPCPokemon extends Pokemon {
     private Moves[] moves;
 
+    /**
+     *
+     * @param name name of the pokemon
+     * @param type type of the pokemon
+     * @param atk attack of the pokemon
+     * @param def defense of the pokemon
+     * @param spatk special attack of the pokemon
+     * @param spdef special defense of the pokemon
+     * @param hp hit points of the pokemon
+     * @param spd speed of the pokemon
+     * @param moves moves of the pokemon
+     */
     public NPCPokemon(String name, String[] type, int atk, int def, int spatk, int spdef, int hp, int spd, Moves[] moves) {
         super(name, type, atk, def, spatk, spdef, hp, spd, moves);
     }
 
+    /**
+     * chooses the best possible move that the pokemon could deal
+     * @param target target pokemon
+     * @return the best possible move, if there is none default to a rand move
+     */
     public Moves chooseMove(Pokemon target) {
         Moves bestMove = null;
         double maxDamage = 0;
@@ -24,6 +44,11 @@ public class NPCPokemon extends Pokemon {
         return bestMove != null ? bestMove : moves[new Random().nextInt(moves.length)]; // Default to a random move
     }
 
+    /**
+     * creates a random pokemon
+     * @param round the round number to increase the scaling of the opposing pokemon
+     * @return the randomly generated pokemon
+     */
     public static NPCPokemon generateRandomNPC(int round) {
         Random rand = new Random();
 
@@ -49,6 +74,11 @@ public class NPCPokemon extends Pokemon {
         return new NPCPokemon("RandomNPC" + rand.nextInt(1000), types, atk, def, spatk, spdef, hp, spd, moves);
     }
 
+    /**
+     * creates a random move
+     * @param type typing of the move
+     * @return a random move
+     */
     private static Moves generateRandomMove(String type) {
         Random rand = new Random();
         int basePower = rand.nextInt(50) + 50; // Random base power
