@@ -1,5 +1,5 @@
 /**
-* @author Nicholas Kicinski and Yejun Shin
+* @author Nicholas Kicinski
 */
 import java.util.HashMap;
 
