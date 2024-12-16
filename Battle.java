@@ -1,3 +1,6 @@
+/** 
+* @author Yejun Shin
+*/
 import java.util.Scanner;
 
 /**
