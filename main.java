@@ -1,15 +1,21 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class main {
+/**
+ * Main class to initialize the player's team of Pokemon and simulate battles.
+ * It allows the player to choose moves for their Pokemon and battle NPC Pokemon.
+ */
+public class Main {
+
+    /**
+     * Main method to set up the Pokemon team and simulate battles.
+     * 
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
-        //variables used to create pokemon or to use the type chart
-        Pokemon[] player = new Pokemon[6];
-        int numPokemon = 0;
-        TypeChart test = new TypeChart();
         Scanner in = new Scanner(System.in);
 
-        // Premade moves
+        // Premade moves initialization
         Moves fireMove = new SpecialMove("Fire", 90, 100, 0);
         Moves waterMove = new SpecialMove("Water", 110, 80, 0);
         Moves grassMove = new SpecialMove("Grass", 90, 100, 0);
@@ -29,7 +35,6 @@ public class main {
         Moves fairyMove = new SpecialMove("Fairy", 95, 100, 0);
         Moves statMove = new StatMove("Attack", 2, 100);
 
-        //Arary list of the premade moves
         ArrayList<Moves> premadeMoves = new ArrayList<>();
         premadeMoves.add(fireMove);
         premadeMoves.add(waterMove);
@@ -50,8 +55,12 @@ public class main {
         premadeMoves.add(fairyMove);
         premadeMoves.add(statMove);
 
-        //creates the pokemon
+        Pokemon[] player = new Pokemon[6];
+        int numPokemon = 0;
+
+        // Create player Pokemon
         for (int i = 0; i < player.length; i++) {
+            // Get player input for Pokemon details
             System.out.println("Enter Pokemon Name: ");
             String name = in.nextLine();
             System.out.println("Enter pokemon atk: ");
@@ -66,13 +75,13 @@ public class main {
             int spatk = in.nextInt();
             System.out.println("Enter pokemon spdef: ");
             int spdef = in.nextInt();
-            in.nextLine(); // Consume the newline character
+            in.nextLine();  // Consume newline
             System.out.println("Enter the pokemon's first type: ");
             String type1 = in.nextLine();
-            System.out.println("Enter the pokemon's second type(Enter none if there is no second type): ");
+            System.out.println("Enter the pokemon's second type (Enter none if there is no second type): ");
             String type2 = in.nextLine();
             String[] type = {type1, type2.equalsIgnoreCase("none") ? null : type2};
-            //add moves that the pokemon will know
+
             ArrayList<Moves> moves = new ArrayList<>();
             System.out.println("You can assign up to 4 moves to this Pokemon from the following premade moves:");
             for (int j = 0; j < premadeMoves.size(); j++) {
@@ -94,7 +103,7 @@ public class main {
                     System.out.println("Invalid choice. Try again.");
                 }
             }
-            // instantiates the pokemon
+
             player[i] = new Pokemon(name, type, atk, def, spatk, spdef, health, speed, moves.toArray(new Moves[0]));
             numPokemon++;
             System.out.println("Do you want to add more pokemon to your team? (y/n)");
@@ -105,12 +114,23 @@ public class main {
             in.nextLine(); // Consume the newline character
         }
 
-        // Generate NPC Pokémon based on round
-        int round = 3;
-        NPCPokemon npcPokemon = NPCPokemon.generateRandomNPC(round);
+        // Start multiple battles
+        boolean continueBattling = true;
+        while (continueBattling) {
+            // Generate NPC Pokémon based on round
+            int round = 3;
+            NPCPokemon npcPokemon = NPCPokemon.generateRandomNPC(round);
 
-        // Start the battle
-        Battle battle = new Battle();
-        battle.startBattle(player[0], npcPokemon);
+            // Start the battle
+            Battle battle = new Battle();
+            battle.startBattle(player[0], npcPokemon);
+
+            // Ask the player if they want to continue battling
+            System.out.println("Do you want to start a new battle? (y/n)");
+            String response = in.nextLine();
+            if (response.equalsIgnoreCase("n")) {
+                continueBattling = false;
+            }
+        }
     }
 }
