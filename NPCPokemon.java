@@ -1,13 +1,38 @@
 import java.util.Random;
 
+/**
+ * Class representing a non-player character (NPC) Pokemon.
+ * The NPC Pokemon can randomly choose moves based on the current battle situation.
+ */
 public class NPCPokemon extends Pokemon {
+
     private Moves[] moves;
 
+    /**
+     * Constructor for an NPC Pokemon.
+     * 
+     * @param name The name of the Pokemon.
+     * @param type The types of the Pokemon (primary and secondary).
+     * @param atk The attack stat of the Pokemon.
+     * @param def The defense stat of the Pokemon.
+     * @param spatk The special attack stat of the Pokemon.
+     * @param spdef The special defense stat of the Pokemon.
+     * @param hp The health points of the Pokemon.
+     * @param spd The speed stat of the Pokemon.
+     * @param moves The moves the NPC Pokemon knows.
+     */
     public NPCPokemon(String name, String[] type, int atk, int def, int spatk, int spdef, int hp, int spd, Moves[] moves) {
         super(name, type, atk, def, spatk, spdef, hp, spd, moves);
         this.moves = moves;
     }
 
+    /**
+     * Chooses the best move for the NPC to use against the given target Pokemon.
+     * The move is selected based on its potential damage, considering the type advantage.
+     * 
+     * @param target The opposing Pokemon the move will target.
+     * @return The best move for the NPC Pokemon to use.
+     */
     public Moves chooseMove(Pokemon target) {
         if (moves == null || moves.length == 0) {
             throw new IllegalStateException("No moves available for NPC");
@@ -29,6 +54,12 @@ public class NPCPokemon extends Pokemon {
         return bestMove != null ? bestMove : moves[new Random().nextInt(moves.length)]; // Default to a random move
     }
 
+    /**
+     * Generates a random NPC Pokemon with stats based on the current battle round.
+     * 
+     * @param round The current battle round, which affects the strength of the NPC Pokemon.
+     * @return A randomly generated NPC Pokemon.
+     */
     public static NPCPokemon generateRandomNPC(int round) {
         Random rand = new Random();
 
@@ -54,6 +85,12 @@ public class NPCPokemon extends Pokemon {
         return new NPCPokemon("RandomNPC" + rand.nextInt(1000), types, atk, def, spatk, spdef, hp, spd, moves);
     }
 
+    /**
+     * Generates a random move for the NPC Pokemon based on the given type.
+     * 
+     * @param type The type of the move.
+     * @return A randomly generated move.
+     */
     private static Moves generateRandomMove(String type) {
         Random rand = new Random();
         int basePower = rand.nextInt(50) + 50; // Random base power
