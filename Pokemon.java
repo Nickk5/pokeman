@@ -139,5 +139,13 @@ public class Pokemon {
   {
     hp -= (int) damage;
   }
+
+  public Moves[] getMoves() {
+    return moves;
+  }
+
+  public void setMoves(Moves[] moves) {
+    this.moves = moves;
+  }
 }
 
