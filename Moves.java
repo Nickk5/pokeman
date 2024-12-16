@@ -1,6 +1,6 @@
 /**
  * an interface to represent the move that a pokemon may know
- * @author Nicholas Kicinski and Yejun Shin
+ * @author Yejun Shin
  */
 public interface Moves {
     /**
