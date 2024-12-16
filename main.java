@@ -8,23 +8,23 @@ public class main {
         TypeChart test = new TypeChart();
         Scanner in = new Scanner(System.in);
 
-        Move fireMove = new SpecialMove("Flamethrower", "Fire", 90, 100);
-        Move waterMove = new SpecialMove("Hydro Pump", "Water", 110, 80);
-        Move grassMove = new SpecialMove("Leaf Blade", "Grass", 90, 100);
-        Move electricMove = new SpecialMove("Thunderbolt", "Electric", 90, 100);
-        Move iceMove = new SpecialMove("Ice Beam", "Ice", 90, 100);
-        Move fightingMove = new PhysicalMove("Close Combat", "Fighting", 120, 100);
-        Move poisonMove = new SpecialMove("Sludge Bomb", "Poison", 90, 100);
-        Move groundMove = new PhysicalMove("Earthquake", "Ground", 100, 100);
-        Move flyingMove = new SpecialMove("Air Slash", "Flying", 75, 95);
-        Move psychicMove = new SpecialMove("Psychic", "Psychic", 90, 100);
-        Move bugMove = new PhysicalMove("X-Scissor", "Bug", 80, 100);
-        Move rockMove = new PhysicalMove("Rock Slide", "Rock", 75, 90);
-        Move ghostMove = new SpecialMove("Shadow Ball", "Ghost", 80, 100);
-        Move dragonMove = new SpecialMove("Dragon Pulse", "Dragon", 85, 100);
-        Move darkMove = new SpecialMove("Dark Pulse", "Dark", 80, 100);
-        Move steelMove = new PhysicalMove("Iron Head", "Steel", 80, 100);
-        Move fairyMove = new SpecialMove("Moonblast", "Fairy", 95, 100);
+        Moves fireMove = new SpecialMove("Flamethrower", "Fire", 90, 100);
+        Moves waterMove = new SpecialMove("Hydro Pump", "Water", 110, 80);
+        Moves grassMove = new SpecialMove("Leaf Blade", "Grass", 90, 100);
+        Moves electricMove = new SpecialMove("Thunderbolt", "Electric", 90, 100);
+        Moves iceMove = new SpecialMove("Ice Beam", "Ice", 90, 100);
+        Moves fightingMove = new PhysicalMove("Close Combat", "Fighting", 120, 100);
+        Moves poisonMove = new SpecialMove("Sludge Bomb", "Poison", 90, 100);
+        Moves groundMove = new PhysicalMove("Earthquake", "Ground", 100, 100);
+        Moves flyingMove = new SpecialMove("Air Slash", "Flying", 75, 95);
+        Moves psychicMove = new SpecialMove("Psychic", "Psychic", 90, 100);
+        Moves bugMove = new PhysicalMove("X-Scissor", "Bug", 80, 100);
+        Moves rockMove = new PhysicalMove("Rock Slide", "Rock", 75, 90);
+        Moves ghostMove = new SpecialMove("Shadow Ball", "Ghost", 80, 100);
+        Moves dragonMove = new SpecialMove("Dragon Pulse", "Dragon", 85, 100);
+        Moves darkMove = new SpecialMove("Dark Pulse", "Dark", 80, 100);
+        Moves steelMove = new PhysicalMove("Iron Head", "Steel", 80, 100);
+        Moves fairyMove = new SpecialMove("Moonblast", "Fairy", 95, 100);
         
         for (int i = 0; i < player.length; i++) {
             System.out.println("Enter Pokemon Name: ");
