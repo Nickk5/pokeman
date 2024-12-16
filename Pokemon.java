@@ -1,6 +1,6 @@
 /**
  * pokemon class to represent a pokemon
- * @author Nicholas Kicinski and Yejun Shin
+ * @author Nicholas Kicinski
 */
 public class Pokemon {
   private String name;
