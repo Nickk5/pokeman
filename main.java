@@ -119,11 +119,13 @@ public class main {
 
         // Start multiple battles
         boolean continueBattling = true;
+        int round = 0;
         while (continueBattling) {
             // Generate NPC Pokémon based on round
-            int round = 1;
             int pokemon = 0;
+            round++;
             NPCPokemon npcPokemon = NPCPokemon.generateRandomNPC(round);
+
             if(player.length == 1)
             {
                 pokemon = 0;
@@ -146,7 +148,7 @@ public class main {
             // Start the battle
             Battle battle = new Battle();
             battle.startBattle(player[pokemon], npcPokemon);
-            round++;
+
 
             // Ask the player if they want to continue battling
             System.out.println("Do you want to start a new battle? (y/n)");
