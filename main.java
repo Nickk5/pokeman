@@ -146,6 +146,7 @@ public class main {
             // Start the battle
             Battle battle = new Battle();
             battle.startBattle(player[pokemon], npcPokemon);
+            round++;
 
             // Ask the player if they want to continue battling
             System.out.println("Do you want to start a new battle? (y/n)");
