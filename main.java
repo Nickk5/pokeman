@@ -132,7 +132,7 @@ public class main {
             }
             else
             {
-                System.out.println("Which number pokemon do you want to use: ");
+                System.out.println("Which number pokemon do you want to use: 1-" + numPokemon);
                 pokemon = in.nextInt() - 1;
                 in.nextLine();
             }
