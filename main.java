@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Main class to initialize the player's team of Pokemon and simulate battles.
  * It allows the player to choose moves for their Pokemon and battle NPC Pokemon.
  */
-public class Main {
+public class main {
 
     /**
      * Main method to set up the Pokemon team and simulate battles.
@@ -123,7 +123,15 @@ public class Main {
             // Generate NPC Pokémon based on round
             int round = 3;
             NPCPokemon npcPokemon = NPCPokemon.generateRandomNPC(round);
-
+            System.out.println("NPC Pokemon Generated:");
+            System.out.println("Name: " + npcPokemon.getName());
+            System.out.print("Type: ");
+            for (String type : npcPokemon.getType()) {
+                if (type != null) {
+                    System.out.print(type + " ");
+                }
+            }
+            System.out.println("\n");
             // Start the battle
             Battle battle = new Battle();
             battle.startBattle(player[0], npcPokemon);

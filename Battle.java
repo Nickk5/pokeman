@@ -7,6 +7,7 @@ import java.util.Scanner;
  * class to simulate a battle
  */
 public class Battle {
+    TypeChart testing = new TypeChart();
     /**
      *
      * @param pokemon the pokemon that the player control
@@ -51,6 +52,7 @@ public class Battle {
             if (choice >= 1 && choice <= player.getMoves().length) {
                 Moves playerMove = player.getMoves()[choice - 1];
                 System.out.println(player.getName() + " used " + playerMove.getType() + "!");
+                System.out.println("Multiplier is: " + testing.getMultiplier(playerMove.getType(), npc.getType()));
                 npc.inflictDamage(playerMove.getDamage(player, npc));
                 System.out.println(npc.getName() + " took damage, HP is now " + npc.getHp());
             } else {
