@@ -119,10 +119,23 @@ public class main {
 
         // Start multiple battles
         boolean continueBattling = true;
+        int round = 0;
         while (continueBattling) {
             // Generate NPC Pokémon based on round
-            int round = 3;
+            int pokemon = 0;
+            round++;
             NPCPokemon npcPokemon = NPCPokemon.generateRandomNPC(round);
+
+            if(player.length == 1)
+            {
+                pokemon = 0;
+            }
+            else
+            {
+                System.out.println("Which number pokemon do you want to use: ");
+                pokemon = in.nextInt() - 1;
+                in.nextLine();
+            }
             System.out.println("NPC Pokemon Generated:");
             System.out.println("Name: " + npcPokemon.getName());
             System.out.print("Type: ");
@@ -134,13 +147,15 @@ public class main {
             System.out.println("\n");
             // Start the battle
             Battle battle = new Battle();
-            battle.startBattle(player[0], npcPokemon);
+            battle.startBattle(player[pokemon], npcPokemon);
+
 
             // Ask the player if they want to continue battling
             System.out.println("Do you want to start a new battle? (y/n)");
             String response = in.nextLine();
-            if (response.equalsIgnoreCase("n")) {
+            if (response.equalsIgnoreCase("n") || player[pokemon].getHp() <= 0) {
                 continueBattling = false;
+                System.out.println("You survived " + round + " rounds!");
             }
         }
     }

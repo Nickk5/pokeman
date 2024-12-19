@@ -18,6 +18,9 @@ public class Pokemon {
   private double spdefchange;
   private double spatkchange;
 
+  public Pokemon() {
+  }
+
   /**
    *
    * @param name the name of the pokemon
@@ -30,6 +33,7 @@ public class Pokemon {
    * @param spd the speed of the pokemon
    * @param move the moves that the pokemon knows
    */
+
   public Pokemon(String name, String[] type, int atk, int def, int spatk, int spdef, int hp, int spd, Moves[] move) {
     this.name = name;
     this.type = type;
