@@ -53,7 +53,7 @@ public class TypeChart {
         chart.put("Ice Grass", 2.0);
         chart.put("Ice Ice", 0.5);
         chart.put("Ice Ground", 2.0);
-        chart.put("Ice Flying", 0.5);
+        chart.put("Ice Flying", 2.0);
         chart.put("Ice Dragon", 2.0);
         chart.put("Ice Steel", 0.5);
         chart.put("Fighting Normal", 2.0);

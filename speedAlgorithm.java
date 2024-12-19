@@ -33,8 +33,9 @@ public class speedAlgorithm {
                 }
             }
             ret.add(speed.get(max));
+            speed.remove(max);
         }
-
+        System.out.println(ret);
         return ret;
     }
 }

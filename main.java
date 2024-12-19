@@ -121,7 +121,7 @@ public class main {
         boolean continueBattling = true;
         while (continueBattling) {
             // Generate NPC Pokémon based on round
-            int round = 3;
+            int round = 1;
             NPCPokemon npcPokemon = NPCPokemon.generateRandomNPC(round);
             System.out.println("NPC Pokemon Generated:");
             System.out.println("Name: " + npcPokemon.getName());
@@ -139,8 +139,9 @@ public class main {
             // Ask the player if they want to continue battling
             System.out.println("Do you want to start a new battle? (y/n)");
             String response = in.nextLine();
-            if (response.equalsIgnoreCase("n")) {
+            if (response.equalsIgnoreCase("n") || player[0].getHp() <= 0) {
                 continueBattling = false;
+                System.out.println("You survived " + round + " rounds!");
             }
         }
     }
